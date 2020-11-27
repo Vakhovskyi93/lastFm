@@ -1,0 +1,4 @@
+Application name	lastFM
+API key	01424f8ebe495e0900a4e99eebd5324c
+Shared secret	842c9e9c636dd918d7ee5c75d9143258
+Registered to	o_vakhovskyi

@@ -1,0 +1,6 @@
+.container-fluid{
+  min-height: 100vh !important;
+  background: rgb(246,246,244);
+  background: linear-gradient(90deg, rgba(246,246,244,0.11528361344537819) 0%, rgba(9,94,121,0.06206232492997199) 27%, rgba(0,212,255,0.196516106442577) 100%);
+
+}

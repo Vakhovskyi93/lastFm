@@ -1,0 +1,19 @@
+.cartItemImg, .cartItemInfo{
+ margin: 0 1px;
+
+
+}
+.cartItem{
+  padding: 10px 5px;
+  background-color: #FFFFFF;
+  margin-top: 15px;
+}
+
+.itemImg{
+  width: 100px;
+  height: 100px;
+}
+
+h3{
+  font-size: 1rem;
+}

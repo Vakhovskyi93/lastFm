@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+  <div class="col-sm-12  d-flex justify-content-start cartItem"
+       *ngFor="let item of searchList |  slice: (page-1) * pageSize : page * pageSize "
+  >
+    <div class="cartItemImg pr-3 " >
+      <img class="itemImg"*ngIf="item.image[0]['#text']" src="{{item.image[0]['#text']}}" alt="">
+      <img class="itemImg"*ngIf="!item.image[0]['#text']" src="./assets/emptyImg.jpg" alt="">
+
+    </div>
+    <div class="cartItemInfo  ">
+      <h4 class="pt-1">{{item.name}}</h4>
+      <p><a href="{{item.url}}">{{item.artist}}</a> </p>
+    </div>
+  </div>
+
+
+  </div>
+
+  <div class="d-flex ml-auto mr-auto justify-content-center">
+    <ngb-pagination
+      [collectionSize]="collectionSize"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      size="sm"
+
+    ></ngb-pagination>
+
+
+  </div>
+</div>
+
