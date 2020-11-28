@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
+import {Observable, pipe, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
 
@@ -13,12 +13,10 @@ export class MainService {
   constructor(private http: HttpClient) { }
 
   getTop(): Observable <any> {
-    return this.http.get(`${this.configUrl}/2.0/?method=chart.gettoptracks&api_key=${this.api}&format=json`, {
-
-    }).pipe(map( data => {
-      return data.tracks.track;
-    }));
+    return this.http.get(`${this.configUrl}/2.0/?method=chart.gettoptracks&api_key=${this.api}&format=json`)
   }
+
+
 
   searchTrack(text): Observable <any> {
 
@@ -29,11 +27,6 @@ export class MainService {
         artist: ''
       }
 
-    }).pipe(map( data => {
-      return data.results.trackmatches.track;
-    }),
-      catchError(err => {
-        return throwError(err);
-      }) );
+    })
   }
 }

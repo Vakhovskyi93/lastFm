@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {fromEvent, Subscription} from "rxjs";
 
 
 @Component({
@@ -10,9 +11,14 @@ export class HeaderComponent implements OnInit {
   @Output() search: EventEmitter<string> = new EventEmitter<string>();
   @Output() resetData: EventEmitter<any> = new EventEmitter<any>();
   post: string;
+  sub: Subscription;
   constructor() { }
 
   ngOnInit(): void {
+    const inputValue$ = fromEvent(document.querySelector('input'), 'keyup');
+    this.sub = inputValue$.subscribe(() => {
+      this.emit();
+    });
   }
   emit(): void{
     this.search.emit(this.post);
@@ -24,6 +30,7 @@ export class HeaderComponent implements OnInit {
   }
   reset(): void {
     this.resetData.emit();
+    this.sub.unsubscribe()
   }
 
 
